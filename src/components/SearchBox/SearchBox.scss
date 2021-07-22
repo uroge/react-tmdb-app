@@ -1,0 +1,38 @@
+@import "../../sass/base/variables";
+
+.search-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem;
+
+  ::placeholder {
+    color: $color-grey;
+    opacity: 1;
+  }
+
+  &__logo {
+    width: 20rem;
+    height: auto;
+    display: flex;
+    align-items: center;
+  }
+
+  &__input {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 45%;
+    padding: 0.7rem 1rem;
+    background-color: $color-black;
+    border: none;
+    border-bottom: 1px solid $color-white;
+    color: $color-white;
+    font-size: 1.5rem;
+
+    &:active,
+    &:focus {
+      outline: none;
+    }
+  }
+}
