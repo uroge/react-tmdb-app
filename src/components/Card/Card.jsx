@@ -39,7 +39,7 @@ const Card = ({ movie }) => {
                 <span className="card__tagline">{tagline}</span>
                 <p>{overview}</p>
                 <div className="card__additional-details">
-                    <span className="card__tagline">{genreList}</span>
+                    <span className="card__tagline genre">{genreList}</span>
                     <span className="card__production">{productionList}</span>
                     <div className="card__release">
                         <div className="card__release-detail">

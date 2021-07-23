@@ -5,12 +5,13 @@
     rgba(0, 0, 0, 0.7) 25%,
     rgba(0, 0, 0, 0.7) 60%
   );
-  background-size: contain;
+  background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 
   &__content {
     min-height: 100vh;
-    width: 60%;
+    width: 55%;
     margin: auto;
     color: white;
   }

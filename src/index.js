@@ -4,11 +4,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './sass/main.scss';
 
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import movieReducer from './store/reducers/movieReducer';
+import thunk from 'redux-thunk';
 
-const store = createStore(movieReducer);
+const store = createStore(movieReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
   <React.StrictMode>
