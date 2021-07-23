@@ -1,0 +1,66 @@
+@import "../../sass/base/variables";
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: $color-black;
+  background: linear-gradient(
+    0deg,
+    rgba($color-black, 0.8) 25%,
+    rgba($color-black, 0.8) 60%
+  );
+  border-radius: 5px;
+
+  &__image {
+    width: 50%;
+    padding-top: 50rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &__description {
+    width: 50%;
+    margin: 1rem;
+  }
+
+  &__title {
+    text-transform: uppercase;
+  }
+
+  p {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  &__tagline {
+    color: $color-green;
+  }
+
+  &__additional-details {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__production {
+    font-size: 1.3rem;
+    text-transform: capitalize;
+  }
+
+  &__release {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+
+    .release-title {
+      text-transform: capitalize;
+    }
+
+    &-detail {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

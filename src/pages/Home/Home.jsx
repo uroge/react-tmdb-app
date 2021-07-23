@@ -6,6 +6,7 @@ import { getMovie } from '../../store/actions/actions';
 import { useDispatch, useSelector } from "react-redux";
 
 import SearchBox from '../../components/SearchBox/SearchBox';
+import Card from '../../components/Card/Card';
 
 import './Home.scss';
 
@@ -22,9 +23,14 @@ const Home = () => {
         .catch(error => console.log(error));
     }, [dispatch]);
 
+    const backdrop_path = movie ? movie.backdrop_path : '';
+
     return(
-        <div className="home">
-            <SearchBox />
+        <div className="home" style={{backgroundImage: `url(https://image.tmdb.org/t/p/w500${backdrop_path}`}}>
+            <div className="home__content">
+                <SearchBox />
+                <Card movie={movie}/>
+            </div>
         </div>
     );
 };
