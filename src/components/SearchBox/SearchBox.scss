@@ -19,11 +19,16 @@
     align-items: center;
   }
 
+  &__search {
+    width: 57%;
+    position: relative;
+  }
+
   &__input {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    width: 57%;
+    width: 100%;
     padding: 0.7rem 1rem;
     background-color: transparent;
     border: none;
@@ -34,6 +39,34 @@
     &:active,
     &:focus {
       outline: none;
+    }
+  }
+
+  &__results {
+    background: $color-black;
+    background: linear-gradient(
+      0deg,
+      rgba($color-black, 0.8) 25%,
+      rgba($color-black, 0.8) 60%
+    );
+    color: $color-white;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__autofill {
+    width: 100%;
+    color: $color-white;
+    text-decoration: none;
+    font-size: 2rem;
+    padding: 0.7rem 0.5rem;
+
+    &:hover {
+      background-color: $color-green;
     }
   }
 }

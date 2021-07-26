@@ -1,8 +1,6 @@
 import React from 'react';
 import { useEffect } from 'react';
 
-import axios from 'axios';
-// import { getMovie } from '../../store/actions/actions';
 import { fetchMovie } from '../../store/actions/actions';
 import { useDispatch, useSelector } from "react-redux";
 
@@ -16,12 +14,6 @@ const Home = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        // axios.get('https://api.themoviedb.org/3/movie/19?api_key=d4cf5da2d09c42ae97cf196827629126')
-        // .then(response => {
-        //     console.log(response.data);
-        //     dispatch(getMovie(response.data));
-        // })
-        // .catch(error => console.log(error));
         dispatch(fetchMovie(19));
     }, [dispatch]);
 
