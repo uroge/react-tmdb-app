@@ -20,11 +20,11 @@ const Home = () => {
     const backdrop_path = movie ? movie.backdrop_path : '';
 
     return(
-        <div className="home" style={{ backgroundImage: 
+        <div className="home" style={ backdrop_path ? { backgroundImage: 
         `linear-gradient(to right, 
         rgba(7.45%, 6.27%, 6.27%, 1.00) 150px, 
         rgba(7.45%, 6.27%, 6.27%, 0.84) 20%), 
-        url(https://image.tmdb.org/t/p/w500${backdrop_path}`}}>
+        url(https://image.tmdb.org/t/p/w500${backdrop_path}`} : null}>
             <div className="home__content">
                 <SearchBox />
                 <Card movie={movie}/>

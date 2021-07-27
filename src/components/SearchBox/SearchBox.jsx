@@ -9,9 +9,8 @@ import { fetchMovie } from '../../store/actions/actions';
 import axios from 'axios';
 
 const SearchBox = () => {
-    const [searchTerm, setSearchTerm] = useState('metropolis');
+    const [searchTerm, setSearchTerm] = useState('');
     const [options, setOptions] = useState([]);
-    const inputRef = React.createRef();
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -20,10 +19,10 @@ const SearchBox = () => {
             .then(response => {
                 let movies = [];
                 if(response.data.results) {
-                    movies.push(response.data.results.slice(0, 5).map((movie) => {
+                    movies.push(response.data.results.slice(0, 6).map((movie) => {
                         return { title: movie.title, id: movie.id}
                     }));
-                    
+
                     setOptions(...movies);
                 }
             })
@@ -33,12 +32,14 @@ const SearchBox = () => {
 
     const handleChange = (event) => {
         setSearchTerm(event.target.value)
-        console.log(options)
+        if(event.target.value === '') {
+            setOptions([]);
+        }
     }
 
     const searchMovie = (event, id) => {
         event.preventDefault();
-        console.log(id);
+        setOptions([]);
         dispatch(fetchMovie(id));
     }
     
@@ -48,11 +49,11 @@ const SearchBox = () => {
                 <img src={Logo} alt="Logo" className="search-box__logo" />
             </a>
             <div className="search-box__search">
-                <input type="text" ref={inputRef} placeholder="Search Movie Title..." onChange={(event) => handleChange(event)} className="search-box__input" />
+                <input type="text" placeholder="Search Movie Title..." onChange={(event) => handleChange(event)} className="search-box__input" />
                 <div className="search-box__results">
                     { options.length ? options.map((movie, idx) => {
-                        return <a href="/" 
-                                key={idx} 
+                        return <a href="/"
+                                key={idx}
                                 onClick={(event) => searchMovie(event, movie.id)}
                                 className="search-box__autofill">{movie.title}</a>;
                     }) : null}
